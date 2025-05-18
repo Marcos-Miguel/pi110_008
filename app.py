@@ -60,13 +60,11 @@ def cadastro():
 
 @app.route('/contato/', methods=['GET', 'POST'])
 def contato():
-    nome = request.form['nome']
-    telefone = request.form['telefone']
-    email = request.form['email']
-    mensagem = request.form['mensagem']
-    
     if request.method == 'POST':
-        print(nome, telefone, email, mensagem)
+        nome = request.form['nome']
+        telefone = request.form['telefone']
+        email = request.form['email']
+        mensagem = request.form['mensagem']
         contato = Contatos(nome, telefone, email, mensagem)
         db.session.add(contato)
         db.session.commit()
